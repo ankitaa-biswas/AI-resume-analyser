@@ -1,6 +1,6 @@
 import {prepareInstructions} from "../../constants";
 import React, { useState, type FormEvent } from 'react'
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 import FileUploader from '~/components/FileUploader';
 import Navbar from '~/components/Navbar'
 import { convertPdfToImage } from '~/lib/pdf2img';
@@ -9,7 +9,7 @@ import { generateUUID } from '~/lib/utils';
 
 const upload = () => {
     const {auth,isLoading,fs,ai,kv}=usePuterStore();
-    const navigae=useNavigate();
+    const navigate=useNavigate();
     const [isProcessing,setIsProcessing]=useState(false);
     const [statusText,setStatusText]=useState("");
     const[file,setFile]=useState<File|null>(null);
@@ -60,6 +60,7 @@ const handleAnalyze =async({companyName,jobTitle,jobDescription,file}:{companyNa
     await kv.set(`resume:${uuid}`,JSON.stringify(data));
     setStatusText('Analysis complete,redirecting...');
     console.log(data);
+    navigate(`/resume/${uuid}`)
 
 
 
