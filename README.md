@@ -31,8 +31,6 @@ App runs on Locally:
 ```
 http://localhost:5173
 ```
-Live Demo:
-```
-https://ai-resume-analyser-eight-red.vercel.app/auth?next=/
-```
+
+[Live Demo](https://ai-resume-analyser-eight-red.vercel.app/auth?next=/)
 
